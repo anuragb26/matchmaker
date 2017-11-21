@@ -1,0 +1,32 @@
+from django.contrib.auth import get_user_model
+User = get_user_model()
+a=User.objects.all()[0]
+b=User.objects.all()[3]
+from matches.models import Match
+m1=Match.objects.get_or_create_match(user_a=a,user_b=b)
+from django.utils import timezone
+timezone.now()
+
+
+from matches.models import Match
+from questions.models import Question
+from django.db.models import Q
+m=Match.objects.all()[0]
+a=m.user_a
+b=m.user_b
+Question.objects.all()
+
+Question.objects.filter(useranswer__user=a)
+
+
+from decimal import Decimal
+from django.contrib.auth import get_user_model
+from django.db.models import Q
+from questions.models import Question,UserAnswer
+from matches.models import Match
+from matches.utils import get_points2
+User = get_user_model()
+m=Match.objects.all()[0]
+a=m.user_a
+b=m.user_b
+
