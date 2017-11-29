@@ -47,7 +47,7 @@ def home(request):
 		#print(SignUp.objects.all().order_by('-timestamp').filter(full_name__iexact="Justin").count())
 		context = {
 			"queryset": queryset,
-			"matches":matches
+			"matches":matches[:6]
 		}
 		return render(request, "questions/home.html", context)
 	return render(request, "home.html", context)

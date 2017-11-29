@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+<style>
+	{% block style %}
 
+	{% endblock style %}
+</style>
 {% block content %}
 <div class="row">
 	<div class="col-sm-8">
 	<h1>Dashboard</h1>
 	</div>
 
-	<div class="col-sm-4">
-		<h3>Matches</h3>
+	<div class="col-sm-4 text-center">
+		<div class="col-sm-12 text-center">
+			<h3>Matches</h3>
+		</div>
+		<hr/>
 		{% for matched_user,percent in matches %}
 		<div class='col-sm-4'>
 			<a href='{{matched_user.profile.get_absolute_url}}'>
 			{{matched_user}} 
 			<br/>
 			{% if matched_user.profile.picture %}
-				<img src='{{matched_user.profile.picture.url}}' class='img-responsive' />
+				<img src='{{matched_user.profile.picture.url}}' class='img-responsive center-block img-featured-match' />
 			{% else %}
-				<img src='{% static "img/default_pic.jpg"  %}' class='img-responsive' />
+				<img src='{% static "img/default_pic.jpg"  %}' class='img-responsive center-block img-featured-match' />
 			{% endif %}
 			</a>
 			{{ percent}}
